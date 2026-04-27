@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Global Explorer</h2>
+        
+        <div class="search-box">
+            <input type="text" id="countryInput" placeholder="Enter a country name...">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="errorMsg" class="hidden error">Country not found. Please try again.</div>
+
+        <div id="countryCard" class="card hidden">
+            <img id="flagImg" src="" alt="Country Flag" class="flag">
+            <h3 id="officialName">Country Name</h3>
+            <div class="stats">
+                <p><strong>Capital:</strong> <span id="capitalCity">-</span></p>
+                <p><strong>Population:</strong> <span id="populationCount">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
