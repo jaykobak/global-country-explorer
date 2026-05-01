@@ -2,11 +2,13 @@
 const apiEndpoint = "https://restcountries.com/v3.1/name/"
 
 async function getDataFromApi(countryName) {
+    data = []
     try {
         completeApiEndpoint = apiEndpoint + countryName
         const countryInfo = await fetch(completeApiEndpoint)
         const countryInfoJson = await countryInfo.json()
-        console.log(countryInfoJson)
+        data.push(countryInfoJson) // Push object to array
+        return data
     }
 
     catch(err) {
