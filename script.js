@@ -2,21 +2,22 @@
 const apiEndpoint = "https://restcountries.com/v3.1/name/"
 
 async function getDataFromApi(countryName) {
-    data = []
+    const data = []
     try {
-        completeApiEndpoint = apiEndpoint + countryName
+        const completeApiEndpoint = apiEndpoint + countryName
         const countryInfo = await fetch(completeApiEndpoint)
         const countryInfoJson = await countryInfo.json()
         data.push(countryInfoJson) // Push object to array
+        // return data
         return data
     }
 
-    catch(err) {
+    catch (err) {
         console.log(err)
     }
 }
 
-const searchCountry = () =>  {
+const searchCountry = async () => {
     // Get user's input
     const userInput = document.getElementById('countryInput').value
 
@@ -28,5 +29,6 @@ const searchCountry = () =>  {
         return;
     }
 
-    getDataFromApi(userInput)
+    const countryData = await getDataFromApi(userInput)
+    console.log(countryData[0][0].name.official)
 }
