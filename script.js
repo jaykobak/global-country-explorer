@@ -29,20 +29,24 @@ const searchCountry = async () => {
     // Get user's input
     const userInput = document.getElementById('countryInput').value
 
+    const countryCardElement = document.getElementById('countryCard')
+    const errorMsgElement = document.getElementById('errorMsg')
+
     // Input validation
     if (userInput.trim() === '') {
-        const errorMsgElement = document.getElementById('errorMsg')
+        clearDisplayCard()
         errorMsg.style.display = 'block'
         errorMsg.innerText = 'Please enter a valid input!'
-        return;
     }
 
-    const countryData = await getDataFromApi(userInput)
-    const countryCardElement = document.getElementById('countryCard')
-    countryCardElement.style.display = 'block'
+    else {
+        clearDisplayCard()
+        const countryData = await getDataFromApi(userInput)
+        countryCardElement.style.display = 'block'
 
-    console.log(countryData[0][0].name.official)
-    console.log(countryData[0][0].capital[0])
-    console.log(countryData[0][0].population)
-    console.log(countryData[0][0].flags.svg)
+        console.log(countryData[0][0].name.official)
+        console.log(countryData[0][0].capital[0])
+        console.log(countryData[0][0].population)
+        console.log(countryData[0][0].flags.svg)
+    }
 }
