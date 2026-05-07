@@ -44,9 +44,9 @@ const searchCountry = async () => {
         const countryData = await getDataFromApi(userInput)
         countryCardElement.style.display = 'block'
 
-        console.log(countryData[0][0].name.official)
-        console.log(countryData[0][0].capital[0])
-        console.log(countryData[0][0].population)
-        console.log(countryData[0][0].flags.svg)
+        document.getElementById('flagImg').src = countryData[0][0].flags.svg
+        document.getElementById('officialName').innerText = countryData[0][0].name.official
+        document.getElementById('capitalCity').innerText = countryData[0][0].capital[0]
+        document.getElementById('populationCount').innerText = countryData[0][0].population
     }
 }
