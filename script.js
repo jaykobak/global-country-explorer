@@ -23,13 +23,16 @@ const searchCountry = async () => {
 
     // Input validation
     if (userInput.trim() === '') {
-        errorMsgElement = document.getElementById('errorMsg')
+        const errorMsgElement = document.getElementById('errorMsg')
         errorMsg.style.display = 'block'
         errorMsg.innerText = 'Please enter a valid input!'
         return;
     }
 
     const countryData = await getDataFromApi(userInput)
+    const countryCardElement = document.getElementById('countryCard')
+    countryCardElement.style.display = 'block'
+
     console.log(countryData[0][0].name.official)
     console.log(countryData[0][0].capital[0])
     console.log(countryData[0][0].population)
