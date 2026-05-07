@@ -42,11 +42,15 @@ const searchCountry = async () => {
     else {
         clearDisplayCard()
         const countryData = await getDataFromApi(userInput)
-        countryCardElement.style.display = 'block'
+        
+        // Delay output by 2 seconds
+        setTimeout(() => {
+            countryCardElement.style.display = 'block'
 
-        document.getElementById('flagImg').src = countryData[0][0].flags.svg
-        document.getElementById('officialName').innerText = countryData[0][0].name.official
-        document.getElementById('capitalCity').innerText = countryData[0][0].capital[0]
-        document.getElementById('populationCount').innerText = countryData[0][0].population
+            document.getElementById('flagImg').src = countryData[0][0].flags.svg
+            document.getElementById('officialName').innerText = countryData[0][0].name.official
+            document.getElementById('capitalCity').innerText = countryData[0][0].capital[0]
+            document.getElementById('populationCount').innerText = countryData[0][0].population
+        }, 2000)
     }
 }
