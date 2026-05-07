@@ -31,4 +31,7 @@ const searchCountry = async () => {
 
     const countryData = await getDataFromApi(userInput)
     console.log(countryData[0][0].name.official)
+    console.log(countryData[0][0].capital[0])
+    console.log(countryData[0][0].population)
+    console.log(countryData[0][0].flags.svg)
 }
